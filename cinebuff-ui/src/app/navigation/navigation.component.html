@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">
+    <img src="assets/img/logo.png">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="col-sm-1"></div>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/home"><div class="connect-txt">Home</div></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/movie"><div class="connect-txt">Movie</div></a>
+      </li>
+      <li class="nav-item active" *ngIf="!showModeratorBoard">
+        <a class="nav-link" routerLink="/theatre"><div class="connect-txt">Theatre</div></a>
+      </li>
+      <li class="nav-item active" *ngIf="showModeratorBoard">
+        <a class="nav-link" routerLink="/edit"><div class="connect-txt">Manage</div></a>
+      </li>
+    </ul>
+
+    <form class="form-inline mr-auto">
+      <input class="form-control mr-sm-3" type="search" placeholder="Search" aria-label="Search">
+      <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+
+        <i class="fa fa-search"></i>
+
+    </form>
+
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a *ngIf="!isLoggedIn" class="nav-link" routerLink="/connect"><div class="connect-txt">Connect to us</div></a>
+      </li>
+      <li class="nav-item active">
+        <a *ngIf="isLoggedIn" class="nav-link" (click)="logout()"><div class="connect-txt">Leave for now</div></a>
+      </li>
+    </ul>
+
+  </div>
+</nav>

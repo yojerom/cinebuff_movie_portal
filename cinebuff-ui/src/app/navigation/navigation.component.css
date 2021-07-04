@@ -1,0 +1,54 @@
+h1
+{
+  text-align: right;
+}
+
+img
+{
+  width: 110px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-brand
+{
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.vl {
+  margin-top: 11px;
+  border-left: 2px solid white;
+  height: 20px;
+}
+
+.form-control
+{
+  width: 600px;
+  height: 30px;
+}
+
+.fa, fa-search
+{
+  font-size: 1.5em;
+  color: white;
+  padding: 0;
+}
+
+.connect-txt
+{
+  color: white;
+  font-family: "poppins";
+}
+
+.connect-txt:hover
+{
+  color: yellow;
+}
+.navbar
+{
+  border-bottom: 1px solid #999;
+}

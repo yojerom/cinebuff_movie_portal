@@ -1,0 +1,110 @@
+<div class="main">
+    <div class="section-head">
+      <div class="vl"><h1>{{movies.movie_name}}</h1></div>
+    </div>
+    <div class="section-one">
+     <div class="row">
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                <img class="movie_preview" [src]="retrievedImage" alt="image-01">
+            </div>
+            <!--<div class="jumbotron" id="alignJumb">
+                <h2 id="fontColor1">Cast :</h2>
+                <p>pa</p>
+            </div>-->
+        </div>
+        <div class="col-sm-4 col-md-7">
+            <div class="jumbotron">
+                <h2 id="fontColor1">Cast :</h2>
+                <p>{{movies.cast}}</p>
+                <hr class="my-4">
+
+                <h2 id="fontColor1">Director :</h2>
+                <p>{{movies.director}}</p>
+                <hr class="my-4">
+
+                <h2 id="fontColor1">Genre :</h2>
+                <p>{{movies.genre}}</p>
+                <hr class="my-4">
+
+                <h2 id="fontColor1">Release :</h2>
+                <p>{{movies.release_date}}</p>
+                <hr class="my-4">
+
+                <h2 id="fontColor1">Running Time :</h2>
+                <p>{{movies.running_time}}</p>
+                <hr class="my-4">
+
+                <h2 id="fontColor1">Distributor :</h2>
+                <p>{{movies.distributor}}</p>
+                <hr class="my-4">
+
+                <h2 id="fontColor1">Language :</h2>
+                <p>{{movies.language}}</p>
+                <hr class="my-4">
+
+                <h2 id="fontColor1">Synopsis :</h2>
+                <p>{{movies.synopsis}}</p>
+            </div>
+        </div>
+        <div class="col-sm-4 col-md-1"></div>
+
+        <div class="col-sm-4 col-md-12 comments-section">
+            <hr>
+            <h2 id="fontColor1">Booking :</h2>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card card-info" *ngFor="let allocation of allocations">
+                            <div class="card-block">
+                               <div>
+									<img class="comment_user" src="src/assets/img/home-img/clapperboard.png" alt="comment_user">
+									<p class="allocationfont" id="crosshair">{{ allocation.booking }}</p>
+								</div>  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="comments-section">
+            <hr>
+            <h2 id="fontColor1">Comments :</h2>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card card-info">
+                            <div class="card-block">
+                                <form>
+                                    <div class="form-row">
+                                      <div class="form-group col-md-12">
+                                        <input type="text" id="inputComment" placeholder="Write your comment here!" class="pb-cmnt-textarea" name="comment" [(ngModel)]="ratingModel.comment" required>
+                                      </div>
+                                      <div class="form-group col-md-12">
+                                        <input type="text" id="inputComment" placeholder="Give your rating here! (0 - 10)" class="pb-cmnt-textarea" name="user_rating" [(ngModel)]="ratingModel.user_rating" required>
+                                      </div>
+                                      <div class="form-group">
+                                        <input type="hidden" id="inputMovieId" name="movie_id" value={{movies.id}} [(ngModel)]="ratingModel.movie_id">
+                                      </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary" (click)="createRating()">Add</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="form">Reset</button>
+                                  </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div></div>
+            <div *ngFor="let rating of ratings">
+                <img class="comment_user" src="src/assets/img/home-img/comment_user.png" alt="comment_user">
+                <p>{{ rating.comment }}</p>
+                <h6>9.0</h6>
+                <hr class="hr_1">
+            </div>            
+        </div>
+
+    </div>
+</div>
+</div>

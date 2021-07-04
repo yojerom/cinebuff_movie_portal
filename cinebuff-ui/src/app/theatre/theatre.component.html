@@ -1,0 +1,20 @@
+<div class="main">
+    <div class="section-head">
+      <div class="vl"><h2>Theatres</h2></div>
+      <h3 class="sub-head">Experience your favourites</h3>
+    </div>
+  
+    <div class="section-one">
+      <div class="row">
+        <div *ngFor="let theatre of theatres" class="col-sm-6 col-md-2">
+          <div class="thumbnail" id="crosshair" href=""> <!--click event-->
+            <img src="src/assets/img/home-img/cinema_crop.png" alt="image-01">
+            <div class="caption">
+            <h2 class="centr">{{theatre.name}}</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  
+</div>

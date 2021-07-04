@@ -1,0 +1,15 @@
+/home/jerom/Documents/Cinebuff_Final/movie-service/src/main/java/com/macnell/movieservice/model/Movie.java
+/home/jerom/Documents/Cinebuff_Final/movie-service/src/main/java/com/macnell/movieservice/controller/MovieController.java
+/home/jerom/Documents/Cinebuff_Final/movie-service/src/main/java/com/macnell/movieservice/service/RatingService.java
+/home/jerom/Documents/Cinebuff_Final/movie-service/src/main/java/com/macnell/movieservice/service/MovieServiceImpl.java
+/home/jerom/Documents/Cinebuff_Final/movie-service/src/main/java/com/macnell/movieservice/controller/RatingController.java
+/home/jerom/Documents/Cinebuff_Final/movie-service/src/main/java/com/macnell/movieservice/model/Allocation.java
+/home/jerom/Documents/Cinebuff_Final/movie-service/src/main/java/com/macnell/movieservice/model/PosterImage.java
+/home/jerom/Documents/Cinebuff_Final/movie-service/src/main/java/com/macnell/movieservice/repository/ImageRepository.java
+/home/jerom/Documents/Cinebuff_Final/movie-service/src/main/java/com/macnell/movieservice/repository/RatingRepository.java
+/home/jerom/Documents/Cinebuff_Final/movie-service/src/main/java/com/macnell/movieservice/repository/MovieRepository.java
+/home/jerom/Documents/Cinebuff_Final/movie-service/src/main/java/com/macnell/movieservice/model/Rating.java
+/home/jerom/Documents/Cinebuff_Final/movie-service/src/main/java/com/macnell/movieservice/service/RatingServiceImpl.java
+/home/jerom/Documents/Cinebuff_Final/movie-service/src/main/java/com/macnell/movieservice/service/MovieService.java
+/home/jerom/Documents/Cinebuff_Final/movie-service/src/main/java/com/macnell/movieservice/MovieServiceApplication.java
+/home/jerom/Documents/Cinebuff_Final/movie-service/src/main/java/com/macnell/movieservice/controller/ImageUploadController.java

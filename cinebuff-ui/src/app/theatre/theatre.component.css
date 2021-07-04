@@ -1,0 +1,113 @@
+.row
+{
+  color: #343a40;
+  font-family: Poppins;
+  padding-top: 10px;
+}
+
+.main
+{
+  width: 100%;
+  background: #343a40;
+  padding: 0;
+  margin: 0;
+  height: auto;
+}
+
+.section-one
+{
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.caption
+{
+  color: white;
+  padding: 0px 0px 0px 1px;
+  border-bottom: 1px solid #999;
+}
+
+.thumbnail
+{
+  width: 195px;
+  /*border: 2px solid #999;*/
+}
+
+/*.thumbnail:hover
+{
+  width: 199px;
+  border: 2px solid yellow;
+}*/
+
+#crosshair {cursor: pointer;}
+
+img:hover
+{
+  width: 195px;
+  height: 150px;
+  border: 2px solid yellow;
+}
+
+img
+{
+  width: 195px;
+  height: 150px;
+  border-bottom: 2px solid #999;
+}
+
+h3
+{
+  font-size: 1em;
+  height: 33px;
+}
+
+.review
+{
+  font-size: 0.8em;
+  margin-top: 5px;
+}
+
+label
+{
+  margin-right: 5px;
+  color: yellow;
+}
+
+h2
+{
+  font-family: Poppins;
+  font-size: 1.2em;
+  height: 33px;
+  font-weight: bolder;
+  margin-left: 8px;
+  color: white;
+}
+
+.section-head
+{
+  margin-top: 25px;
+  margin-left: 10px;
+}
+
+.vl
+{
+  border-left: 4px solid yellow;
+  height: 20px;
+}
+
+.sub-head
+{
+  color: lightgrey;
+  margin: 5px 0 0 0;
+}
+.sampclass
+{
+  color: white;
+}
+
+.centr
+{
+  margin-top: 13px;
+  text-align: center;
+}

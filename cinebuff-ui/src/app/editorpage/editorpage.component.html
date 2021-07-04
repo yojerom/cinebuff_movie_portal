@@ -1,0 +1,276 @@
+<div class="edit-section">
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"><h5>Movies</h5></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><h5>Allocation</h5></a>
+    </li>
+  </ul>
+
+  <div class="tab-content" id="myTabContent"><!-- tab viewer -->
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"><!-- movie tab -->
+      <div class="tabarea">
+        
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="row"></th>
+          <th scope="col">ID</th>
+          <th scope="col">Movie Name</th>
+          <th scope="row">Critic Rating</th>
+          <th scope="row">Running Time</th>
+          <th scope="row">Language</th>
+          <th scope="col">Release Date</th>
+          <th scope="col">Status</th>
+          <th scope="row"><!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" (click)="openModal(template)">
+              Add New
+            </button>
+          </th>
+          <th scope="row"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let emovie of movies">
+          <th scope="row"></th>
+          <th scope="row">{{emovie.id}}</th>
+          <td>{{emovie.movie_name}}</td>
+          <td>{{emovie.critic_rating}}</td>
+          <td>{{emovie.running_time}}</td>
+          <td>{{emovie.language}}</td>
+          <td>{{emovie.release_date}}</td>
+          <td>{{emovie.status}}</td>
+          <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModalCenter" (click)="openModalEdit(templateEdit);loadMovieDetailsForEdit(emovie.id)">
+            Edit
+          </button></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!--new movie Modal begin -->
+    <ng-template #template>
+    <div #newMovieModal class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">New Movie</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="modalRef.hide()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+
+            <form>
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label for="inputName">Movie name</label>
+                  <input type="text" name="name" class="form-control" id="inputName" [(ngModel)]="movieModel.movie_name">
+                </div>
+                <div class="form-group col-md-12">
+                  <label for="inputCast">Cast</label>
+                  <input type="text" name="cast" class="form-control" id="inputCast" [(ngModel)]="movieModel.cast">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputDirector">Director</label>
+                  <input type="text" name="Director" class="form-control" id="inputDirector" [(ngModel)]="movieModel.director">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputGenre">Genre</label>
+                  <input type="text" name="genre" class="form-control" id="inputGenre" [(ngModel)]="movieModel.genre">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputDate">Release date</label>
+                  <input type="text" name="release_date" class="form-control" id="inputDate" [(ngModel)]="movieModel.release_date">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputTime">Running time</label>
+                  <input type="text" name="running_time" class="form-control" id="inputTime" [(ngModel)]="movieModel.running_time">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputDistributor">Distributor</label>
+                  <input type="text" name="distributor" class="form-control" id="inputDistributor" [(ngModel)]="movieModel.distributor">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputLanguage">Language</label>
+                  <input type="text" name="language" class="form-control" id="inputLanguage" [(ngModel)]="movieModel.language">
+                </div>
+                <div class="form-group col-md-12">
+                  <label for="inputSynopsis">Synopsis</label>
+                  <input type="text" name="synopsis" class="form-control" id="inputSynopsis" [(ngModel)]="movieModel.synopsis">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputRating">Critic Rating</label>
+                  <input type="number" name="critic_rating" class="form-control" id="inputRating" [(ngModel)]="movieModel.critic_rating">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputStatus">Status</label>
+                  <input type="text" name="status" class="form-control" id="inputStatus" [(ngModel)]="movieModel.status">
+                </div>
+                <div class="form-group col-md-12">
+                  <label for="inputStatus">Image</label>
+                  <div>
+                    <input type="file" (change)="onFileChanged($event)">
+                  </div>
+                  </div>
+                  <div class="form-group">
+                    <input type="hidden" id="inputPosterName" name="poster_name" value={{selectedFile.name}} [(ngModel)]="movieModel.poster_name">
+                  </div>
+                </div>
+              
+              <button type="submit" class="btn btn-primary" (click)="onUpload();createMovie();modalRef.hide()">Save changes</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="modalRef.hide()">Close</button>
+              
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+    <!-- new movie Modal end-->
+
+    <!--edit movie Modal begin -->
+    <ng-template #templateEdit>
+    <div class="modal fade" id="editModalCenter" tabindex="-1" role="dialog" aria-labelledby="editModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editModalCenterTitle">Edit Movie</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+
+            <form>
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label for="inputName">Movie name</label>
+                  <input type="text" name="name" class="form-control" id="inputName" [(ngModel)]="editMovieModel.movie_name">
+                </div>
+                <div class="form-group col-md-12">
+                  <label for="inputCast">Cast</label>
+                  <input type="text" name="cast" class="form-control" id="inputCast" [(ngModel)]="editMovieModel.cast">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputDirector">Director</label>
+                  <input type="text" name="Director" class="form-control" id="inputDirector" [(ngModel)]="editMovieModel.director">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputGenre">Genre</label>
+                  <input type="text" name="genre" class="form-control" id="inputGenre" [(ngModel)]="editMovieModel.genre">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputDate">Release date</label>
+                  <input type="text" name="release_date" class="form-control" id="inputDate" [(ngModel)]="editMovieModel.release_date">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputTime">Running time</label>
+                  <input type="text" name="running_time" class="form-control" id="inputTime" [(ngModel)]="editMovieModel.running_time">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputDistributor">Distributor</label>
+                  <input type="text" name="distributor" class="form-control" id="inputDistributor" [(ngModel)]="editMovieModel.distributor">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputLanguage">Language</label>
+                  <input type="text" name="language" class="form-control" id="inputLanguage" [(ngModel)]="editMovieModel.language">
+                </div>
+                <div class="form-group col-md-12">
+                  <label for="inputSynopsis">Synopsis</label>
+                  <input type="text" name="synopsis" class="form-control" id="inputSynopsis" [(ngModel)]="editMovieModel.synopsis">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputRating">Critic Rating</label>
+                  <input type="number" name="critic_rating" class="form-control" id="inputRating" [(ngModel)]="editMovieModel.critic_rating">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputStatus">Status</label>
+                  <input type="text" name="status" class="form-control" id="inputStatus" [(ngModel)]="editMovieModel.status">
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary" (click)="updateMovie();modalRefEdit.hide()">Update</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="modalRefEdit.hide()">Close</button>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+    <!-- edit movie Modal end-->
+  </div>
+  </div>
+
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab"><!-- allocation tab -->
+      <div class="tabarea">
+        
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="row"></th>
+              <th scope="col">ID</th>
+              <th scope="col">Movie ID</th>
+              <th scope="row">Booking</th>
+              <th scope="row"><!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#allocationModalCenter" (click)="openModalAllo(templateAllo)">
+                  Add New
+                </button>
+              </th>
+              <th scope="row"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let eallocation of allocations">
+              <th scope="row"></th>
+              <th scope="row">{{eallocation.id}}</th>
+              <td>{{eallocation.movId}}</td>
+              <td>{{eallocation.booking}}</td>
+              <td><button type="button" class="btn btn-primary" (click)="deleteAllocation(eallocation)">Delete</button></td>
+            </tr>
+          </tbody>
+        </table>
+        
+      <!-- Modal begin -->
+      <ng-template #templateAllo>
+    <div class="modal fade" id="allocationModalCenter" tabindex="-1" role="dialog" aria-labelledby="allocationModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="allocationModalCenterTitle">New Allocation</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            
+            <form>
+              <div class="row">
+                <div class="form-group col-md-12">
+                  <label for="exampleFormControlSelect1">Movie name</label>
+                  <select class="form-control" id="exampleFormControlSelect1" name="moviename" [(ngModel)]="allocationModel.movId">
+                    <option *ngFor="let selectmovie of movies" [ngValue]="selectmovie.id">{{selectmovie.movie_name}}</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-12">
+                  <label for="exampleFormControlSelect1">Theatre name</label>
+                  <select class="form-control" id="exampleFormControlSelect1" name="theatrename" [(ngModel)]="allocationModel.booking">
+                    <option *ngFor="let selecttheatre of theatres" [ngValue]="selecttheatre.website">{{selecttheatre.name}}</option>
+                  </select>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary" (click)="createAllocation();modalRefAllo.hide()">Allocate</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="modalRefAllo.hide()">Close</button>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+    <!-- Modal end-->
+      </div>
+    </div>
+  </div>
+</div>

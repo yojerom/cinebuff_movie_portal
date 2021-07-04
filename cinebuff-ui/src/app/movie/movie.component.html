@@ -1,0 +1,23 @@
+<div class="main">
+    <div class="section-head">
+      <div class="vl"><h2>Movies</h2></div>
+      <h3 class="sub-head">Explore your favourites</h3>
+    </div>
+  
+    <div class="section-one">
+      <div class="row">
+        <div *ngFor="let movie of movies" class="col-sm-6 col-md-2 tiles">
+          <div class="thumbnail" id="crosshair"> <!--click event-->
+            <img [src]="movie.poster_name" alt="image-01" [routerLink]="['/moviedetails', movie.id]" routerLinkActive="active">
+            <div class="caption">
+            <div class="review">
+              <label><i class="fa fa-star"></i></label>{{movie.critic_rating}}.0
+            </div>
+            <h3>{{movie.movie_name}}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  
+</div>

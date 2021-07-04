@@ -1,0 +1,15 @@
+com/macnell/movieservice/repository/MovieRepository.class
+com/macnell/movieservice/MovieServiceApplication.class
+com/macnell/movieservice/controller/ImageUploadController.class
+com/macnell/movieservice/service/MovieService.class
+com/macnell/movieservice/service/RatingService.class
+com/macnell/movieservice/repository/ImageRepository.class
+com/macnell/movieservice/model/Movie.class
+com/macnell/movieservice/service/RatingServiceImpl.class
+com/macnell/movieservice/service/MovieServiceImpl.class
+com/macnell/movieservice/model/Rating.class
+com/macnell/movieservice/repository/RatingRepository.class
+com/macnell/movieservice/model/PosterImage.class
+com/macnell/movieservice/controller/RatingController.class
+com/macnell/movieservice/model/Allocation.class
+com/macnell/movieservice/controller/MovieController.class

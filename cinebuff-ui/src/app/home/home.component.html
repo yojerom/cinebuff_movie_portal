@@ -1,0 +1,82 @@
+<div class="main">
+
+<!--in theatres start-->
+  <div class="section-head">
+    <div class="vl"><h2>In Theatres</h2></div>
+    <h3 class="sub-head">Opening this week</h3>
+  </div>
+
+  <div class="section-one">
+    <div class="row">
+
+    <div *ngFor="let movie of movies" class="tiles">
+      <div *ngIf="movie.status==='Released'" class="col-sm-6 col-md-2">
+        <div class="thumbnail" id="crosshair"> <!--click event-->
+          <img [src]="movie.poster_name" alt="image-01" [routerLink]="['/moviedetails', movie.id]" routerLinkActive="active">
+          <div class="caption">
+          <div class="review">
+            <label><i class="fa fa-star"></i></label>{{movie.critic_rating}}.0
+          </div>
+          <h3>{{movie.movie_name}}</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    </div>
+  </div>
+<!--in theatres end-->
+
+<!--by rating start-->
+<div class="section-head">
+  <div class="vl"><h2>Critics' Choice</h2></div>
+  <h3 class="sub-head">The finest movies by rating</h3>
+</div>
+
+<div class="section-one">
+  <div class="row">
+
+    <div *ngFor="let movie of movies">
+      <div *ngIf="movie.critic_rating > 7" class="col-sm-6 col-md-2">
+        <div class="thumbnail" id="crosshair"> <!--click event-->
+          <img [src]="movie.poster_name" alt="image-01" [routerLink]="['/moviedetails', movie.id]" routerLinkActive="active">
+          <div class="caption">
+          <div class="review">
+            <label><i class="fa fa-star"></i></label>{{movie.critic_rating}}.0
+          </div>
+          <h3>{{movie.movie_name}}</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  </div>
+<!--by rating end-->
+
+<!--coming soon section-->
+  <div class="section-head">
+    <div class="vl"><h2>Coming Soon</h2></div>
+    <h3 class="sub-head">Expectations for next week</h3>
+  </div>
+
+  <div class="section-one">
+    <div class="row">
+
+      <div *ngFor="let movie of movies">
+        <div *ngIf="movie.status==='Coming soon'" class="col-sm-6 col-md-2">
+          <div class="thumbnail" id="crosshair"> <!--click event-->
+            <img [src]="movie.poster_name" alt="image-01" [routerLink]="['/moviedetails', movie.id]" routerLinkActive="active">
+            <div class="caption">
+            <div class="review">
+              <label><i class="fa fa-star"></i></label>Rating to be Advised
+            </div>
+            <h3>{{movie.movie_name}}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
